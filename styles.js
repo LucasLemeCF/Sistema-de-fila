@@ -1,9 +1,8 @@
-import { StyleSheet, StatusBar } from "react-native";
+import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
     background: {
         backgroundColor: "#000000",
-        paddingTop: StatusBar.currentHeight,
         flex: 1,
     },
     screen: {
