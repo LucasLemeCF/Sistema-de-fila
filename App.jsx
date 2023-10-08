@@ -18,8 +18,6 @@ const App = () => {
     let previousCpf = 0;
     let previousSps = 0;
 
-    console.log("\n");
-
     const newState = items.map((item) => {
       convertstringToNumeric(item);
 
@@ -120,8 +118,6 @@ const ItemsTable = ({ items, setItems }) => {
     };
   
     const newState = items.map((item) => updateItem(item, type, convertValueToNumeric(value)));
-  
-    console.log(newState);
     setItems(newState);
   }
 
