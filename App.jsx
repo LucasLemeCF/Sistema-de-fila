@@ -15,6 +15,23 @@ const App = () => {
     },
   ]);
 
+  return (
+    <>
+      <StatusBar style="light" />
+      <SafeAreaView style={styles.background}>
+        <ScrollView contentContainerStyle={styles.screen}>
+          
+          <Text style={styles.title}>Fila M/M/1</Text> 
+          
+          <Table items={items} setItems={setItems}/>
+
+        </ScrollView >
+      </SafeAreaView >
+    </>
+  );
+};
+
+const Table = ({ items, setItems }) => {
   const handleChange = (items) => {
     let previousCpf = 0;
     let previousSps = 0;
@@ -44,64 +61,37 @@ const App = () => {
     setItems(newState);
   };
 
-  const newLine = (items) => {
-    const novaListaDeItens = Array.from(items);
-
-    const novoItem = {
-      id: novaListaDeItens.length,
-      ic: "",
-      ts: "",
-      cpf: 0,
-      eps: 0,
-      sps: 0,
-    };
-
-    novaListaDeItens.push(novoItem);
-    setItems(novaListaDeItens);
-  };
-
   return (
-    <>
-      <StatusBar style="light" />
-      <SafeAreaView style={styles.background}>
-        <ScrollView contentContainerStyle={styles.screen}>
-          <Text style={styles.title}>Fila M/M/1</Text> 
-          <View style={styles.container} value={items}>
-            <View style={styles.header}>
-              <Text style={styles.cellHeader}>P</Text>
-              <Text style={styles.cellHeader}>ic</Text>
-              <Text style={styles.cellHeader}>ts</Text>
-              <Text style={styles.cellHeader}>cpf</Text>
-              <Text style={styles.cellHeader}>eps</Text>
-              <Text style={styles.cellHeader}>sps</Text>
-            </View>
+    <View style={styles.container} value={items}>
+      <Header/>
 
-            <ItemsTable items={items} setItems={setItems} />
+      <ItemsTable items={items} setItems={setItems}/>
 
-            <View style={{ flexDirection: "row", justifyContent: "space-evenly", marginTop: 20 }}>
-              <Button
-                onPress={() => newLine(items)}
-                color="#3700B3"
-                title={'Adicionar Linha'}
-                style={styles.button}
-              ></Button>
-              <Button
-                onPress={() => setItems(items.slice(0, items.length - 1))}
-                color="#6c6c6c"
-                title={'Remover Linha'}
-                style={styles.button}
-              ></Button>
-            </View>
+      <View style={{ flexDirection: "row", justifyContent: "space-evenly", marginTop: 20 }}>
+        <NewLineButton items={items} setItems={setItems}/>
+        <DeleteLineButton items={items} setItems={setItems}/>
+      </View>
 
-            <View style={{marginTop: 20,}} > 
-              <Button onPress={() => handleChange(items)} color="#23036A" title={'Atualizar tabela'}></Button>
-            </View>
-          </View>
-        </ScrollView >
-      </SafeAreaView >
-    </>
+      <View style={{marginTop: 20,}} > 
+        <Button onPress={() => handleChange(items)} color="#23036A" title={'Atualizar tabela'}></Button>
+      </View>
+      </View>
   );
-};
+}
+
+
+const Header = () => {
+  return (
+    <View style={styles.header}>
+      <Text style={styles.cellHeader}>P</Text>
+      <Text style={styles.cellHeader}>ic</Text>
+      <Text style={styles.cellHeader}>ts</Text>
+      <Text style={styles.cellHeader}>cpf</Text>
+      <Text style={styles.cellHeader}>eps</Text>
+      <Text style={styles.cellHeader}>sps</Text>
+    </View>
+  );
+}
 
 const ItemsTable = ({ items, setItems }) => {
   const onChanged = (value, items, id, type) => {
@@ -140,5 +130,43 @@ const ItemsTable = ({ items, setItems }) => {
      </View>
   );
 };
+
+const NewLineButton = ({ items, setItems }) => {
+  const newLine = (items) => {
+    const novaListaDeItens = Array.from(items);
+
+    const novoItem = {
+      id: novaListaDeItens.length,
+      ic: "",
+      ts: "",
+      cpf: 0,
+      eps: 0,
+      sps: 0,
+    };
+
+    novaListaDeItens.push(novoItem);
+    setItems(novaListaDeItens);
+  };
+
+  return (
+    <Button
+      onPress={() => newLine(items)}
+      color="#3700B3"
+      title={'Adicionar Linha'}
+      style={styles.button}
+    ></Button>
+  );
+}
+
+const DeleteLineButton = ({ items, setItems }) => {
+  return (
+    <Button
+    onPress={() => setItems(items.slice(0, items.length - 1))}
+    color="#6c6c6c"
+    title={'Remover Linha'}
+    style={styles.button}
+  ></Button>
+  );
+}
 
 export default App;
