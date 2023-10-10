@@ -6,8 +6,6 @@ import { LineChart, } from "react-native-chart-kit";
 import Table from "./components/table";
 import styles from "./styles";
 
-const screenWidth = Dimensions.get("window").width;
-
 const App = () => {
   const [valores, setValores] = useState([
     {
@@ -91,12 +89,9 @@ const Graphic = ({ items }) => {
     decimalPlaces: 2,
     color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
     labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
-    style: {
-      borderRadius: 5
-    },
     propsForDots: {
       r: "3",
-      strokeWidth: "1",
+      strokeWidth: "0",
       stroke: "#fff"
     }
   }
@@ -106,26 +101,19 @@ const Graphic = ({ items }) => {
       data={{
         labels: label,
         datasets: [
-          {
-            data: dataCpf
-          },
-          {
-            data: dataEps
-          },
-          {
-            data: dataSps
-          }
-          
+          {data: dataCpf, color: (opacity = 1) => `rgba(255, 0, 0, ${opacity})`}, 
+          {data: dataEps, color: (opacity = 1) => `rgba(0, 255, 0, ${opacity})`}, 
+          {data: dataSps, color: (opacity = 1) => `rgba(0, 0, 255, ${opacity})`}
         ]
       }}
-      width={Dimensions.get("window").width * 0.9} // from react-native
+      width={Dimensions.get("window").width * 0.85}
       height={220}
-      yAxisInterval={1} // optional, defaults to 1
+      yAxisInterval={1}
       chartConfig={chartConfig}
       bezier
       style={{
-        marginVertical: 8,
-        borderRadius: 16
+        marginVertical: 10,
+        borderRadius: 5
       }}
     />
   );
