@@ -2,15 +2,15 @@ import React, { useEffect, useState } from "react";
 import { Dimensions } from "react-native";
 import { LineChart, } from "react-native-chart-kit";
 
-export default function Graphic({ items }) {
-    if (items.length == 0) {
+export default function Graphic({ values }) {
+    if (values.length == 0) {
       return null;
     } 
   
     useEffect(() => {
       arrLabel();
       arrData();
-    }, [items]);
+    }, [values]);
   
     const [label, setLabel] = useState([0]);
     const [dataCpf, setDataCpf] = useState([0]);
@@ -18,7 +18,7 @@ export default function Graphic({ items }) {
     const [dataSps, setDataSps] = useState([0]);
   
     const arrLabel = () => {
-      setLabel(Array(items.length).fill(1).map((_, index) => Number(index)));
+      setLabel(Array(values.length).fill(1).map((_, index) => Number(index)));
     };
   
     const arrData = () => {
@@ -26,10 +26,10 @@ export default function Graphic({ items }) {
       const eps = [];
       const sps = [];
      
-      items.map((item) => (
-        cpf.push(item.cpf),
-        eps.push(item.eps),
-        sps.push(item.sps)
+      values.map((value) => (
+        cpf.push(value.cpf),
+        eps.push(value.eps),
+        sps.push(value.sps)
       ));
   
       setDataCpf(cpf);
@@ -70,7 +70,7 @@ export default function Graphic({ items }) {
         chartConfig={chartConfig}
         bezier
         style={{
-          marginVertical: 10,
+          marginVertical: 20,
           borderRadius: 5
         }}
       />

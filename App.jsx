@@ -7,16 +7,11 @@ import Table from "./components/table";
 import styles from "./styles";
 
 const App = () => {
-  const [valores, setValores] = useState([
+  const [values, setValues] = useState([
     {
       id: 0,
-      ic: "",
-      ts: "",
-    },
-  ]);
-  const [items, setItems] = useState([
-    {
-      id: 0,
+      ic: 0,
+      ts: 0,
       cpf: 0,
       eps: 0,
       sps: 0,
@@ -31,9 +26,9 @@ const App = () => {
           
           <Text style={styles.title}>Fila M/M/1</Text> 
           
-          <Table valores={valores} setValores={setValores} items={items} setItems={setItems}/>
+          <Table values={values} setValues={setValues}/>
 
-          <Graphic items={items}/>
+          <Graphic values={values}/>
 
         </ScrollView >
       </SafeAreaView >
