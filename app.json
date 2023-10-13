@@ -1,15 +1,13 @@
 {
   "expo": {
     "name": "Fila M/M/1",
-    "slug": "Fila M/M/1",
+    "slug": "sistema-de-fila",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/lambda.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#000000"
     },
     "assetBundlePatterns": [
       "**/*"
@@ -20,12 +18,12 @@
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/lambda.png",
-        "backgroundColor": "#ffffff"
+        "backgroundColor": "#000000"
       },
       "package": "com.lucasleme.sistemadefila"
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./assets/lambda.png"
     },
     "extra": {
       "eas": {
