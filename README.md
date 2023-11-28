@@ -1,6 +1,7 @@
 # Indice
 
 - [Sobre](#sobre)<br/>
+- [Tela do aplicativo](#tela-do-aplicativo)<br/>
 - [Como baixar o aplicativo](#como-baixar-o-aplicativo)<br/>
 - [Desafio proposto](#-desafio-proposto)<br/>
 - [Tabela e grafico com resultados esperados](#tabela-e-grafico-com-resultados-esperados)
@@ -9,8 +10,12 @@
 Projeto desenvolvido para simular e calcular uma fila M/M/1.<br/>
 O aplicativo foi proposto na aula de Modelagem e Simulação do curso de Engenharia da Computanção na Universidade de Sorocaba(UNISO).
 
+## Tela do aplicativo
+![tela-1](/assets/tela-1.jpeg)
+![tela-2](/assets/tela-2.jpeg)
+
 ## Como baixar o aplicativo
-Link para baixar: [(Clique aqui)](.github/fila-mm1.apk)<br/>
+Link para baixar: [Clique aqui](.github/fila-mm1.apk)<br/>
 
 ## Desafio proposto
 ![img-0](/assets/image.png)<br/>
